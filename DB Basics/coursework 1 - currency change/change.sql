@@ -1,21 +1,34 @@
 CREATE TABLE currencies 
 (
-currency_id INTEGER UNIQUE,
+currency_id NUMBER(7) PRIMARY KEY,
 currency_name VARCHAR2(20) UNIQUE,
 currency_description VARCHAR(50),
 sell_price FLOAT(5),
-buy_price FLOAT(5),
-CONSTRAINT currency_pk PRIMARY KEY(currency_id)
+buy_price FLOAT(5)
 );
+
+DESCRIBE currencies;
+
+INSERT INTO currencies VALUES(1,'EUR', 'Euro description', '1.911', '1.733');
+INSERT INTO currencies VALUES(2,'BGN', 'BGN description', '0.611', '0.499');
+INSERT INTO currencies VALUES(3,'USD', 'USD description', '1.911', '1.733');
+INSERT INTO currencies VALUES(4,'CAD', 'Euro description', '1.511', '1.333');
+
+SELECT * FROM currencies;
+
 
 CREATE TABLE clients
 (
-client_id INTEGER UNIQUE,
+client_id NUMBER(7) PRIMARY KEY ,
 client_first_name VARCHAR(20),
 client_last_name VARCHAR(20),
-client_egn  VARCHAR(10),
-CONSTRAINT client_pk PRIMARY KEY(client_id)
+client_egn  VARCHAR(10) UNIQUE
 );
+DESCRIBE clients;
+
+INSERT INTO clients VALUES (1,'Borislav','Stoyanov', '0011223344');
+
+
 
 CREATE TABLE orders
 (

@@ -1,0 +1,18 @@
+CREATE TABLE orders
+(
+order_id NUMBER(5) PRIMARY KEY,
+client_id,
+order_date DATE,
+
+CONSTRAINT client_fk  
+  FOREIGN KEY (client_id)
+  REFERENCES clients(client_id)
+);
+
+INSERT INTO orders VALUES(1,1,TO_DATE('04 12 2019','MM DD, YYYY'));
+INSERT INTO orders VALUES (2,3, TO_DATE('09 11 2019','MM DD, YYYY')); 
+INSERT INTO orders VALUES (3,4, TO_DATE('10 10 2019', 'MM DD, YYYY'));
+INSERT INTO orders VALUES (4,1,TO_DATE('03 9 2020','MM DD, YYYY'));
+INSERT INTO orders VALUES (5,4, TO_DATE('06 5 2020','MM DD,YYYY'));
+
+SELECT * FROM orders;
